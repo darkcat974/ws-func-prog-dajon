@@ -9,7 +9,7 @@ module Predicates where
 isDigit :: [Char] -> Bool
 isDigit [] = True
 isDigit (x:xs)
-    | (x >= '0' || x <= '9') = isDigit xs
+    | (x >= '0' && x <= '9') = isDigit xs
     | otherwise = False
 
 isString :: [Char] -> Bool
