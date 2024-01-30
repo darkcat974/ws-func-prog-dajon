@@ -1,5 +1,6 @@
 module Tree where
 import Parse
+import Text.Read (readMaybe)
 data ASTree = Add ASTree ASTree
             | Sub ASTree ASTree
             | Mul ASTree ASTree
@@ -20,3 +21,10 @@ buildExpr x s y =
         "*" -> Add x y
         "/" -> Add x y
         _ -> error "nope"
+
+mapValues :: [String] -> [ASTree]
+mapValues [] = []
+mapValues (x:y) =
+    case readMaybe x of
+        Just xs -> Value xs : mapValues y
+        Nothing -> error "not a number"
