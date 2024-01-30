@@ -4,6 +4,8 @@
 -- File description:
 -- Parse
 --
+module Parse where
+
 isDigit :: [Char] -> Bool
 isDigit [] = True
 isDigit (x:xs)
